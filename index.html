@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyper Address Converter</title>
+  </head>
+  <body>
+    <h1>Hyper Address converter</h1>
+    <p>
+      This app converts the hex connection string provided by
+      <a href="https://github.com/holepunchto/hyperdht" target="_blank">HyperDHT</a> and
+      <a href="https://holesail.io/" target="_blank">holesail</a> into a Bech32 encoded domain name using
+      <code>.hyper</code> root domain
+      <br />
+      These domain names are intended to be used with
+      <a href="https://github.com/hzrd149/hyper-socks5-proxy" target="_blank">hyper-socks5-proxy</a> and
+      <a href="https://github.com/hzrd149/hyper-http-proxy" target="_blank">hyper-http-proxy</a>
+    </p>
+
+    <label for="hex">Hex</label>
+    <br />
+    <input type="text" id="hex" size="64" />
+
+    <br />
+    <br />
+
+    <label for="hex">Hyper address (Bech32)</label>
+    <br />
+    <input type="text" id="bech32" size="64" />
+
+    <script type="module" src="./web/index.ts"></script>
+
+    <p>
+      Typescript/Javascript library:
+      <a href="https://www.npmjs.com/package/hyper-address" target="_blank">hyper-address</a>
+      <br />
+      Source: <a href="https://github.com/hzrd149/hyper-address">GitHub</a>
+    </p>
+  </body>
+</html>
