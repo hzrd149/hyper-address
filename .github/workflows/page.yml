@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: yarn vite build
+        run: yarn vite build --base /hyper-address
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
