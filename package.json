@@ -1,7 +1,7 @@
 {
   "name": "hyper-address",
   "description": "HyperDHT keys encoded as bech32",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,7 +11,7 @@
   "files": [
     "lib"
   ],
-  "bin": "lib/bin/proxy.js",
+  "bin": "lib/bin/index.js",
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build",
