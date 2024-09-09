@@ -4,6 +4,20 @@ function stripRoot(address: string) {
   return address.replace(/\.hyper$/, "");
 }
 
+function hexToUint8(hex: string) {
+  hex = hex.replace(/^0x/, "");
+  if (hex.length % 2 !== 0) hex = "0" + hex;
+
+  // Convert hex string to byte array
+  const bytes = new Uint8Array(hex.length / 2);
+
+  for (let i = 0; i < hex.length; i += 2) {
+    bytes[i / 2] = parseInt(hex.substring(i, i + 2), 16);
+  }
+
+  return bytes;
+}
+
 export function isAddress(address: string) {
   return /^hypr1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{58,}$/gi.test(stripRoot(address));
 }
@@ -17,10 +31,11 @@ export function decodePubkey(encoded: string) {
 export function decodeAddress(address: string) {
   return decodePubkey(stripRoot(address));
 }
-export function encodePubkey(pubkey: Uint8Array) {
-  let words = bech32.toWords(pubkey);
+export function encodePubkey(pubkey: Uint8Array | string) {
+  let key = typeof pubkey === "string" ? hexToUint8(pubkey) : pubkey;
+  let words = bech32.toWords(key);
   return bech32.encode("hypr", words, Bech32MaxSize);
 }
-export function encodeAddress(pubkey: Uint8Array) {
+export function encodeAddress(pubkey: Uint8Array | string) {
   return encodePubkey(pubkey) + ".hyper";
 }
